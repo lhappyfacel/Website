@@ -107,8 +107,23 @@ h2 {
     body {
         font-size: 14px;
     }
+    .hero {
+        flex-direction: column;
+        padding: 20px; 
+    }
+
+    .hero-cta {
+        flex-basis: auto;
+        margin-right: 0;
+        margin-bottom: 20px; 
+        text-align: center; 
+    }
+
+    .hero-image img {
+        width: 100%; 
+        height: auto;
+    }
 }
   img {
-    max-width: auto;
     height: auto;
   }
