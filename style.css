@@ -131,3 +131,7 @@ h2 {
   img {
     height: auto;
   }
+  a {
+    color: white; 
+    text-decoration: none;
+}
