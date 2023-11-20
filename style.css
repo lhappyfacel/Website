@@ -113,7 +113,8 @@ h2 {
     }
     .hero {
         flex-direction: column;
-        padding: 20px; 
+        padding: 20px;
+        background-image: url(images/mobile-background.jpg);
     }
 
     .hero-cta {
