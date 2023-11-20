@@ -110,6 +110,6 @@ h2 {
     }
 }
   img {
-    max-width: 100%;
+    max-width: auto;
     height: auto;
   }
