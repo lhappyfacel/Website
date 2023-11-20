@@ -45,6 +45,9 @@ body {
         align-items: center;
         justify-content: center;
         padding: 90px;
+        background-image: url(images/cowboy.jpg);
+        background-size: cover;
+        background-position: center;
     }
     .hero-image img {
         width: 400px;
@@ -102,6 +105,7 @@ h2 {
 }
 .content{
     background-color: black;
+    margin-top: -20px;
 }
 @media only screen and (max-width: 768px) {
     body {
