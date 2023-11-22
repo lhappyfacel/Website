@@ -569,3 +569,46 @@
 
   return new Lightbox();
 }));
+document.addEventListener('DOMContentLoaded', function () {
+  var albumContainer = document.getElementById('albumContainer');
+  var mainPhotoTrigger = document.getElementById('mainPhotoTrigger');
+  var exitButton = document.getElementById('exitButton');
+
+  lightbox.init();  
+
+  // Function to show the album
+  function showAlbum() {
+      albumContainer.classList.remove('hidden');
+  }
+
+  
+
+  // Function to hide the album
+  function hideAlbum() {
+      albumContainer.classList.add('hidden');
+  }
+
+  // Event listener for main photo trigger click
+  mainPhotoTrigger.addEventListener('click', function (event) {
+      event.preventDefault(); // Prevent the default action
+      showAlbum();
+  });
+
+  // Event listener for exit button click
+  exitButton.addEventListener('click', hideAlbum);
+
+  // Event listener for document click
+  document.addEventListener('click', function (event) {
+      // Check if the click is outside the album container
+      if (!albumContainer.contains(event.target) && !mainPhotoTrigger.contains(event.target)) {
+          hideAlbum();
+      }
+  });
+});
+
+
+ 
+
+
+
+

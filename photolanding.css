@@ -18,3 +18,16 @@ body {
     border-radius: 15px;
     margin: 5px 20px 0px 20px;
 }
+.hidden {
+    display: none;
+}
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Adjust this based on your layout preference */
+ }
+ 
+ .album-item {
+    flex: 0 0 30%; /* Adjust the width of each item as needed */
+    margin-bottom: 15px; /* Add margin between items */
+ }

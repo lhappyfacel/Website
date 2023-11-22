@@ -5,24 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="photolanding.css" rel="stylesheet" type="text/css" media="all">
     <link href="path/to/lightbox.css" rel="stylesheet" />
-    <script src="path/to/lightbox-plus-jquery.js"></script>
     <title>Photos</title>
 </head>
 <body>
     <div class="content-info">
-        <div>
-            <a href="images/wife.jpg" data-lightbox="margie" data-title="The Wife"><img src="images/wife.jpg"></a>
-            <a href="images/Margiepics/margie.jpg" data-lightbox="margie"></a>
-            <a href="images/Margiepics/margie1.jpg" data-lightbox="margie"></a>
-            <a href="images/Margiepics/margie2.jpg" data-lightbox="margie"></a>
-            <a href="images/Margiepics/margie3.jpg" data-lightbox="margie"></a>
-            <a href="images/Margiepics/margie4.jpg" data-lightbox="margie"></a>
-            <p>Wife</p>
-        </div>
-        <div>
-            <a href="images/son.jpg" target="_blank"> <img src="images/son.jpg"></a>
-            <p>Son</p>
-        </div>
+    <!-- Main photo trigger -->
+    <div class="main-photo-trigger" id="mainPhotoTrigger" data-lightbox="mainAlbum">
+        <img src="images/wife.jpg" alt="Main Photo"><p>Wife</p>
+    </div>
+
+    <!-- Album container (initially hidden) -->
+    <div class="album-container hidden" id="albumContainer">
+        <button class="exit-button" id="exitButton1">&times; Exit</button>
+
+        <div class="flex-container">
+
+            <a href="images/Margiepics/margie.jpg" data-lightbox="album" data-title="margie">
+                <img src="images/Margiepics/margie.jpg" alt="Image 1"></a>
+
+                <a href="images/Margiepics/margie1.jpg" data-lightbox="album" data-title="margie">
+                    <img src="images/Margiepics/margie1.jpg" alt="Image 1">
+
+
+                    <a href="images/Margiepics/margie2.jpg" data-lightbox="album" data-title="margie">
+                        <img src="images/Margiepics/margie2.jpg" alt="Image 1"></a>
+
+                        <a href="images/Margiepics/margie3.jpg" data-lightbox="album" data-title="margie">
+                            <img src="images/Margiepics/margie3.jpg" alt="Image 1"></a>
+                        </div>
+                        </div>
+
+                        <div class="main-photo-trigger" id="mainPhotoTrigger2">
+                            <img src="images/son.jpg" alt="Main Photo"><p>Son</p>
+                        </div>
+                    
+                        <!-- Album container (initially hidden) -->
+                        <div class="album-container hidden" id="albumContainer2">
+                            <button class="exit-button" id="exitButton2">&times; Exit</button>
+                    
+                            <div class="flex-container">
+                                <a href="images/Erniepics/ernie2.jpg" data-lightbox="album2" data-title="ernie">
+                                    <img src="images/Erniepics/ernie2.jpg" alt="Image 1"></a>
+
+                                    <a href="images/Erniepics/ernie3.jpg" data-lightbox="album2" data-title="ernie">
+                                        <img src="images/Erniepics/ernie3.jpg" alt="Image 1"></a>
+
+                                        <a href="images/Erniepics/ernie4.jpg" data-lightbox="album2" data-title="ernie">
+                                            <img src="images/Erniepics/ernie4.jpg" alt="Image 1"></a>
+
+                                            <a href="images/Erniepics/ernie5.jpg" data-lightbox="album2" data-title="ernie">
+                                                <img src="images/Erniepics/ernie5.jpg" alt="Image 1"></a>
+
+                                                <a href="images/Erniepics/ernie6.jpg" data-lightbox="album2" data-title="ernie">
+                                                    <img src="images/Erniepics/ernie6.jpg" alt="Image 1"></a>
+
+                                                    <a href="images/Erniepics/ernie7.jpg" data-lightbox="album2" data-title="ernie">
+                                                        <img src="images/Erniepics/ernie7.jpg" alt="Image 1"></a>
+
+
+
+
+</div></div>
+
         <div>
             <a href="images/mom&dad.jpg" target="_blank">   <img src="images/mom&dad.jpg"></a>
             <p>Mom & Dad</p>
@@ -35,6 +79,49 @@
             <a href="images/brother&sisterinlaw.jpg" target="_blank">    <img src="images/brother&sisterinlaw.jpg"></a>
             <p>Brother & Sister-in-law</p>
         </div>
-        <script src="path/to/lightbox.js"></script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var albumContainers = document.querySelectorAll('.album-container');
+                var mainPhotoTriggers = document.querySelectorAll('.main-photo-trigger');
+                var exitButtons = document.querySelectorAll('.exit-button');
+    
+                function showAlbum(index) {
+                    albumContainers[index].classList.remove('hidden');
+                }
+    
+                function hideAlbum(index) {
+                    albumContainers[index].classList.add('hidden');
+                }
+    
+                for (var i = 0; i < mainPhotoTriggers.length; i++) {
+                    mainPhotoTriggers[i].addEventListener('click', (function (index) {
+                        return function () {
+                            showAlbum(index);
+                        }
+                    })(i));
+    
+                    exitButtons[i].addEventListener('click', (function (index) {
+                        return function () {
+                            hideAlbum(index);
+                        }
+                    })(i));
+    
+                    document.addEventListener('click', function (event) {
+                        for (var i = 0; i < albumContainers.length; i++) {
+                            if (!albumContainers[i].contains(event.target) && !mainPhotoTriggers[i].contains(event.target)) {
+                                hideAlbum(i);
+                            }
+                        }
+                    });
+                }
+
+        
+    });
+            
+        </script>
+<script src="path/to/lightbox-plus-jquery.js"></script>
+<script src="path/to/lightbox.js"></script>
+
 </body>
 </html>
